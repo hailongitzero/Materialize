@@ -1,0 +1,347 @@
+/*Created by Hai Long 26-05-2016 */
+@charset "UTF-8";
+
+// Mixins  sss
+// @import "components/prefixer";
+@import "components/mixins";
+@import "components/color";
+
+// Variables;
+@import "components/variables";
+
+// Reset
+@import "components/normalize";
+
+$header-info-height: 20px;
+$header-info-font-color: color('blue-grey', 'lighten-4') !default;
+$gray-bg-color: color('grey', 'lighten-1') !default;
+
+button, input, optgroup, select, textarea{
+  display: inline-block;
+}
+
+//over ride section class
+.row{
+margin-bottom: 0 !important;
+}
+.header-info{
+  display: none;
+  width: 100%;
+  height: 20px;
+  position: relative;
+  top: 0;
+  left: 0;
+  .fixed{
+    width: 100%;
+    //height: 20px;
+    background-color: $header-info-font-color;
+    position: fixed;
+    z-index: 9999;
+  }
+}
+//Slide
+@media #{$small-and-down} {
+  #homeSlider{
+    height: 400px !important;
+    .slides{
+      li{
+        .caption{
+          width: 90%;
+          .center-align{
+            left: 5%;
+            right: 5%;
+          }
+        }
+      }
+    }
+  }
+}
+
+#homeSlider{
+  height: 400px !important;
+  .slides{
+    li{
+      .caption{
+        width: 90%;
+        .center-align{
+          width: 70%;
+          left: 15%;
+          right: 15%;
+        }
+        .right-align{
+          right: 5%;
+          left: auto;
+        }
+        .left-align{
+          .closer-to-middle{
+            left: 38%;
+          }
+        }
+        h3{
+          font-family: "Lobster Two", serif;
+          font-style: italic;
+          font-size: 3.6rem;
+          font-weight: bold;
+          text-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+          margin-bottom: 0.4rem;
+        }
+        p{
+          font-size: 1.1rem;
+          text-shadow: 0 3px 5px rgba(0, 0, 0, 0.4);
+          margin-top: 0;
+        }
+      }
+    }
+  }
+  .indicators{
+    right: 5%;
+    bottom: 2%;
+    z-index: 40;
+    text-align: right;
+    position: absolute;
+    .indicator-item{
+      background: transparent;
+      border: 2px solid #fff;
+      margin: 0 4px;
+      box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+      &.active{
+        background: #fff;
+      }
+    }
+  }
+}
+
+@media #{$medium-and-down} {
+  #homeSlider{
+    .slider{
+      li{
+        .caption{
+          .left-align{
+            .closer-to-middle{
+              width: 90%;
+              left: 5%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//Nav-side custom visible side-nav
+@media #{$large-and-up} {
+  a.button-collapse { display: inherit !important; }
+}
+
+// override side-nav position
+.side-nav{
+  top: $sidenav-item-height;
+  .brand-logo{
+    display: block;
+    position: relative;
+    height: auto;
+    text-align: center;
+    margin: 10px;
+    a{
+      height: 100px!important;
+      img{
+        width: 60%;
+      }
+    }
+  }
+  .collapsible{
+    li{
+      &:hover{
+        background-color: rgba(0,0,0,.05);
+      }
+    }
+    .collapsible-header{
+      min-height: 1rem;
+      line-height: 3rem;
+      background-color: $gray-bg-color;
+      font-weight: bold;
+    }
+    .collapsible-body{
+      margin: 10px;
+    }
+  }
+}
+
+@media #{$small-and-down} {
+  .side-nav{
+    top: $navbar-height-mobile;
+  }
+}
+.box-shadow{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  &:hover{
+    box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.3), 0 4px 15px 0 rgba(0, 0, 0, 0.3);
+  }
+}
+
+//padding page when open sidenav menu
+.page-padding {
+  padding-left: 240px;
+  @media #{$small-and-down} {
+      padding-left: 0;
+  }
+}
+
+.menu-layout{
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+  overflow-x: scroll;
+  background-color: white;
+  display: none;
+  left: 0!important;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  .collection{
+    .collection-header{
+      text-align: center;
+      font-weight: bold;
+      font-size: $h6-fontsize;
+      color: $card-link-color;
+      text-transform: uppercase;
+    }
+    .collection-item{
+      padding: 5px 10px;
+    }
+  }
+  ul{
+    li{
+      a{
+        color: $off-black !important;
+      }
+    }
+  }
+}
+
+//Search layout
+.search-layout{
+  width: 100%;
+  margin: 10px;
+  position: relative;
+  display: inline-flex;
+  background-color: $primary-color;
+  vertical-align: middle;
+}
+
+//header box category content
+.category{
+  padding: 10px 0;
+  text-align: center;
+  .flat-menu{
+    width: 100%;
+    margin: 0;
+    white-space: nowrap;
+    .item{
+      display: inline-block;
+      width: 12.5%;
+      text-align: center;
+      text-transform: capitalize;
+      color: $navbar-font-color;
+      background-color: $primary-color;
+      &:hover{
+        background-color: #00b0ff;
+        color: white;
+        box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.3), 0 4px 15px 0 rgba(0, 0, 0, 0.3);
+      }
+      i{
+        display: block;
+        padding-top: 10px;
+        font-size: 2em;
+        margin-bottom: 0.3em;
+        //border-left: 1px solid #ccc;
+        text-align: center;
+      }
+    }
+  }
+}
+
+//left scrollspy menu content
+.toc-wrapper{
+  display: block;
+  position: relative;;
+  margin-top: 42px;
+}
+
+//category wrapper separate header
+.inline{
+  width: 100%;
+  float: left;
+  vertical-align: middle;
+  position: relative;
+  display: inline-flex;
+  color: $link-color;
+  a{
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 0 5px;
+  }
+  hr{
+    width: 100%;
+    border: solid;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+  }
+}
+
+//float right
+.float-right{
+  float: right;
+}
+
+//text uppercase
+.text-uppercase{
+  text-transform: uppercase;
+}
+
+.carousel{
+  &:hover{
+    box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.3), 0 4px 15px 0 rgba(0, 0, 0, 0.3);
+  }
+  .carousel-item{
+    top: 100px;
+    width: 400px;
+    a{
+      line-height: 0;
+    }
+  }
+}
+
+.crs-bg{
+  text-align: center;
+  background-image: url(../images/travel-bg.jpg);
+  height: 400px;
+  width: 100%!important;
+  margin-left: 0;
+  padding-top: 15px;
+  .heading{
+    color: white;
+    font-size: 35px;
+    padding-bottom: 15px;
+    padding-top: 20px;
+  }
+  .crs-layout{
+    background-color: rgba(0, 0, 0, 0.3);
+    .title{
+      color: $card-link-color-light;
+      font-size: $h5-fontsize; line-height: 110%; margin: 0 0 ($h5-fontsize / 2.5) 0;
+    }
+    .content{
+      color: white;
+    }
+  }
+}
+
+hr.small{
+  width: 25%;
+}
+
+.featured-media{
+  .row{
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0px!important;
+  }
+}
