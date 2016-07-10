@@ -2055,21 +2055,86 @@ th {
 button, input, optgroup, select, textarea {
   display: inline-block; }
 
+.svg-icon-18px {
+  width: 18px;
+  height: 18px; }
+
+.svg-icon-20px {
+  width: 20px;
+  height: 20px; }
+
+.svg-icon-22px {
+  width: 22px;
+  height: 22px; }
+
+.svg-icon-24px {
+  width: 24px;
+  height: 24px; }
+
+.hidden {
+  display: none; }
+
 .row {
   margin-bottom: 0 !important; }
 
 .header-info {
-  display: none;
   width: 100%;
-  height: 20px;
+  height: 24px;
   position: relative;
   top: 0;
   left: 0; }
-  .header-info .fixed {
+  .header-info .header-fixed {
     width: 100%;
-    background-color: #cfd8dc;
+    height: 24px;
+    padding: 0 100px;
+    background-color: #90CAF9;
+    color: white;
     position: fixed;
     z-index: 9999; }
+    .header-info .header-fixed .svg-link {
+      opacity: 0.5;
+      margin: 0 10px; }
+    .header-info .header-fixed .ribbon {
+      margin: 2px 10px; }
+      .header-info .header-fixed .ribbon a {
+        display: inline-flex; }
+      .header-info .header-fixed .ribbon span {
+        margin-right: 10px; }
+      .header-info .header-fixed .ribbon .invisible-ribbon {
+        position: absolute;
+        top: -9999px;
+        z-index: 99;
+        visibility: hidden; }
+      .header-info .header-fixed .ribbon .visible-ribbon {
+        position: fixed;
+        z-index: 99;
+        visibility: visible;
+        display: inline;
+        background-color: #FFFFFF; }
+
+.vi-vn {
+  display: block;
+  text-indent: -9999px;
+  width: 25px;
+  height: 20px;
+  background: url(../images/svg-icon/flag-vi.svg);
+  background-size: 25px 20px; }
+
+.en-us {
+  display: block;
+  text-indent: -9999px;
+  width: 25px;
+  height: 20px;
+  background: url(../images/svg-icon/flag-en.svg);
+  background-size: 25px 20px; }
+
+.menu-icon {
+  padding: 0 10px; }
+
+.main-menu {
+  padding-right: 40px; }
+  .main-menu li a {
+    text-transform: uppercase; }
 
 @media only screen and (max-width: 600px) {
   #homeSlider {
@@ -2125,7 +2190,7 @@ button, input, optgroup, select, textarea {
   a.button-collapse {
     display: inherit !important; } }
 .side-nav {
-  top: 64px; }
+  top: 72px; }
   .side-nav .brand-logo {
     display: block;
     position: relative;
@@ -2145,6 +2210,9 @@ button, input, optgroup, select, textarea {
     font-weight: bold; }
   .side-nav .collapsible .collapsible-body {
     margin: 10px; }
+
+.side-nav-none-info {
+  top: 48px !important; }
 
 @media only screen and (max-width: 600px) {
   .side-nav {

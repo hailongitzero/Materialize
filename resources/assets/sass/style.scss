@@ -12,31 +12,112 @@
 // Reset
 @import "components/normalize";
 
-$header-info-height: 20px;
+$header-info-height: 24px;
 $header-info-font-color: color('blue-grey', 'lighten-4') !default;
+$header-info-bg-color: color('blue','lighten-3') !default;
 $gray-bg-color: color('grey', 'lighten-1') !default;
+$white: color('shades', 'white') !default;
 
 button, input, optgroup, select, textarea{
   display: inline-block;
+}
+.svg-icon-18px{
+  width: 18px;
+  height: 18px;
+}
+.svg-icon-20px{
+  width: 20px;
+  height: 20px;
+}
+.svg-icon-22px{
+  width: 22px;
+  height: 22px;
+}
+.svg-icon-24px{
+  width: 24px;
+  height: 24px;
+}
+
+.hidden{
+  display: none;
 }
 
 //over ride section class
 .row{
 margin-bottom: 0 !important;
 }
+
 .header-info{
-  display: none;
+  //display: none;
   width: 100%;
-  height: 20px;
+  height: $header-info-height;
   position: relative;
   top: 0;
   left: 0;
-  .fixed{
+  .header-fixed{
     width: 100%;
-    //height: 20px;
-    background-color: $header-info-font-color;
+    height: $header-info-height;
+    padding: 0 100px;
+    background-color: $header-info-bg-color;
+    color: white;
     position: fixed;
     z-index: 9999;
+    .svg-link{
+      opacity: 0.5;
+      margin: 0 10px;
+    }
+    .ribbon{
+      margin: 2px 10px;
+      a{
+        display: inline-flex;
+      }
+      span{
+        margin-right: 10px;
+      }
+      &:hover &:active{
+      }
+      .invisible-ribbon{
+        position: absolute;
+        top: -9999px;
+        z-index: 99;
+        visibility: hidden;
+      }
+      .visible-ribbon{
+        position: fixed;
+        z-index: 99;
+        visibility: visible;
+        display: inline;
+        background-color: $white;
+      }
+    }
+  }
+}
+//ribbon icon
+.vi-vn {
+  display: block;
+  text-indent: -9999px;
+  width: 25px;
+  height: 20px;
+  background: url(../images/svg-icon/flag-vi.svg);
+  background-size: 25px 20px;
+}
+.en-us {
+  display: block;
+  text-indent: -9999px;
+  width: 25px;
+  height: 20px;
+  background: url(../images/svg-icon/flag-en.svg);
+  background-size: 25px 20px;
+}
+
+//menu option
+.menu-icon{
+  padding: 0 10px;
+}
+.main-menu{
+  padding-right: 40px;
+  li a{
+    text-transform: uppercase;
   }
 }
 //Slide
@@ -135,7 +216,7 @@ margin-bottom: 0 !important;
 
 // override side-nav position
 .side-nav{
-  top: $sidenav-item-height;
+  top: $sidenav-item-height+$header-info-height;
   .brand-logo{
     display: block;
     position: relative;
@@ -167,6 +248,10 @@ margin-bottom: 0 !important;
   }
 }
 
+//set position when header info none display
+.side-nav-none-info{
+  top: $sidenav-item-height !important;
+}
 @media #{$small-and-down} {
   .side-nav{
     top: $navbar-height-mobile;
